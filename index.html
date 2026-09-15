@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Creativo - Laura</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Titolo Case Sensitive */
+        h1 {
+            font-size: 2.2rem;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: none;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+
+        /* Menu di Navigazione */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        nav button {
+            background: transparent;
+            color: #aaaaaa;
+            border: 1px solid #333;
+            font-size: 1.1rem;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        nav button:hover, nav button.active {
+            color: #ffffff;
+            border-color: #ffffff;
+            background-color: #111;
+        }
+
+        /* Gestione Visibilità Sezioni */
+        .page-section {
+            display: none; /* Di base tutte le pagine sono nascoste */
+        }
+
+        .page-section.active {
+            display: block; /* Solo la pagina attiva viene mostrata */
+        }
+
+        /* Pagina Chi Sono */
+        .intro-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .intro-image {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .intro-text {
+            flex: 1.5;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #dddddd;
+        }
+
+        /* Gallerie a 4 Colonne */
+        .gallery {
+            column-count: 4;
+            column-gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1200px) { .gallery { column-count: 3; } }
+        @media (max-width: 800px) { .gallery { column-count: 2; } }
+        @media (max-width: 500px) { 
+            .gallery { column-count: 1; } 
+            .intro-container { flex-direction: column; text-align: center; }
+            nav { flex-direction: column; }
+        }
+
+        .artwork {
+            break-inside: avoid;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .artwork a {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        .artwork img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .artwork img:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            text-align: center;
+        }
+
+        .title { color: #ffffff; font-weight: bold; }
+        .details { font-style: italic; }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666666;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Portfolio Creativo di Laura 🎨</h1>
+
+    <!-- Menu con pulsanti invece che link -->
+    <nav>
+        <button class="nav-btn active" onclick="showPage('chi-sono', this)">Chi Sono</button>
+        <button class="nav-btn" onclick="showPage('galleria', this)">Galleria d'Arte</button>
+        <button class="nav-btn" onclick="showPage('fotografie', this)">Fotografie</button>
+    </nav>
+
+    <!-- SEZIONE 1: CHI SONO -->
+    <section id="chi-sono" class="page-section active">
+        <div class="intro-container">
+            <div class="intro-image">
+                <img src="foto_profilo.jpeg" alt="Laura Francesca Iacob">
+            </div>
+            <div class="intro-text">
+                <p>
+                    Benvenuti nel mio portfolio artistico. Sono Laura Francesca Iacob e qui raccolgo le mie opere realizzate con diverse tecniche tradizionali e digitali, oltre agli scatti fotografici realizzati con la mia macchina fotografica.
+                </p>
+                <p>
+                    [SCRIVI MEGLIO.]
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE 2: GALLERIA D'ARTE -->
+    <section id="galleria" class="page-section">
+        <div class="gallery">
+
+            <div class="artwork">
+                <a href="dipinti/d14.png" target="_blank">
+                    <img src="dipinti/d14.png" alt="Ragazzo in chiaroscuro">
+                </a>
+                <div class="caption">
+                    <span class="title">ragazzo in chiaroscuro</span> - 
+                    <span class="details">Matita su carta (2026)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d13.png" target="_blank">
+                    <img src="dipinti/d13.png" alt="Volto di Dante">
+                </a>
+                <div class="caption">
+                    <span class="title">Volto di Dante</span> - 
+                    <span class="details">Acquerelli su carta (2026)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d12.png" target="_blank">
+                    <img src="dipinti/d12.png" alt="Urla di una madre">
+                </a>
+                <div class="caption">
+                    <span class="title">Urla di una madre</span> - 
+                    <span class="details">Penna BIC blu su carta (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d11.png" target="_blank">
+                    <img src="dipinti/d11.png" alt="Fanciulla">
+                </a>
+                <div class="caption">
+                    <span class="title">Fanciulla</span> - 
+                    <span class="details">Carboncino su carta (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d10.png" target="_blank">
+                    <img src="dipinti/d10.png" alt="Fanciulla Van Gogh">
+                </a>
+                <div class="caption">
+                    <span class="title">Fanciulla Van Gogh</span> - 
+                    <span class="details">Acrilici su carta (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d9.png" target="_blank">
+                    <img src="dipinti/d9.png" alt="Joker">
+                </a>
+                <div class="caption">
+                    <span class="title">Joker</span> - 
+                    <span class="details">Matita su carta (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d7.png" target="_blank">
+                    <img src="dipinti/d7.png" alt="Drago fantasy">
+                </a>
+                <div class="caption">
+                    <span class="title">Drago fantasy</span> - 
+                    <span class="details">Penna BIC blu su carta (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d6.png" target="_blank">
+                    <img src="dipinti/d6.png" alt="Volto di donna africana">
+                </a>
+                <div class="caption">
+                    <span class="title">Volto di donna africana</span> - 
+                    <span class="details">Digitale (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d5.png" target="_blank">
+                    <img src="dipinti/d5.png" alt="Busto di sirena">
+                </a>
+                <div class="caption">
+                    <span class="title">Busto di sirena</span> - 
+                    <span class="details">Acquerelli su carta (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d4.png" target="_blank">
+                    <img src="dipinti/d4.png" alt="Creatura fantastica">
+                </a>
+                <div class="caption">
+                    <span class="title">Creatura fantastica</span> - 
+                    <span class="details">Penna BIC nera su carta (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d3.png" target="_blank">
+                    <img src="dipinti/d3.png" alt="Volto di donna con girasoli">
+                </a>
+                <div class="caption">
+                    <span class="title">Volto di donna con girasoli</span> - 
+                    <span class="details">Acquerelli su carta (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d2.png" target="_blank">
+                    <img src="dipinti/d2.png" alt="Superchicca rosa">
+                </a>
+                <div class="caption">
+                    <span class="title">Superchicca rosa</span> - 
+                    <span class="details">Digitale (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d1.png" target="_blank">
+                    <img src="dipinti/d1.png" alt="Biancaneve">
+                </a>
+                <div class="caption">
+                    <span class="title">Biancaneve</span> - 
+                    <span class="details">Acquerelli su carta (202?)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="dipinti/d0.png" target="_blank">
+                    <img src="dipinti/d0.png" alt="Dettaglio del volto di David">
+                </a>
+                <div class="caption">
+                    <span class="title">Dettaglio del volto di David di Michelangelo</span> - 
+                    <span class="details">Matita su carta (202?)</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEZIONE 3: FOTOGRAFIE -->
+    <section id="fotografie" class="page-section">
+        <div class="gallery">
+
+            <div class="artwork">
+                <a href="foto/f1.jpeg" target="_blank">
+                    <img src="foto/f1.jpeg" alt="Scorcio urbano">
+                </a>
+                <div class="caption">
+                    <span class="title">Tramonto sul Trasimeno</span> - 
+                    <span class="details">Samsung (2024)</span>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <a href="foto/f0.JPG" target="_blank">
+                    <img src="foto/f0.JPG" alt="Tramonto in montagna">
+                </a>
+                <div class="caption">
+                    <span class="title">Tempio a Villa Borghese</span> - 
+                    <span class="details">Sony Alpha6000 (2025)</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Laura Francesca Iacob. Tutti i diritti riservati.
+    </footer>
+
+    <!-- Script JavaScript per gestire il cambio pagina senza ricaricare -->
+    <script>
+        function showPage(pageId, btnElement) {
+            // Nasconde tutte le sezioni
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Rimuove lo stato attivo da tutti i pulsanti
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Mostra la sezione selezionata e attiva il pulsante
+            document.getElementById(pageId).classList.add('active');
+            btnElement.classList.add('active');
+        }
+    </script>
+    
+    <script>
+      document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+    
+</body>
+</html>
