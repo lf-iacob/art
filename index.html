@@ -87,18 +87,25 @@
             color: #dddddd;
         }
 
-        /* Gallerie a 4 Colonne */
+        /* Gallerie a Colonne (Invertite: gli elementi in fondo al codice appaiono per primi) */
         .gallery {
-            column-count: 4;
-            column-gap: 20px;
+            display: flex;
+            flex-direction: column-reverse; /* Inverte l'ordine: l'ultimo in basso nel codice diventa il primo visibile */
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        @media (max-width: 1200px) { .gallery { column-count: 3; } }
-        @media (max-width: 800px) { .gallery { column-count: 2; } }
+        /* Sotto-griglia interna per mantenere il layout a colonne responsive */
+        .gallery-grid {
+            column-count: 4;
+            column-gap: 20px;
+            width: 100%;
+        }
+
+        @media (max-width: 1200px) { .gallery-grid { column-count: 3; } }
+        @media (max-width: 800px) { .gallery-grid { column-count: 2; } }
         @media (max-width: 500px) { 
-            .gallery { column-count: 1; } 
+            .gallery-grid { column-count: 1; } 
             .intro-container { flex-direction: column; text-align: center; }
             nav { flex-direction: column; }
         }
@@ -184,194 +191,198 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
     <!-- SEZIONE 2: GALLERIA D'ARTE -->
     <section id="galleria" class="page-section">
         <div class="gallery">
+            <div class="gallery-grid">
 
-            <div class="artwork">
-                <a href="dipinti/schiele.png" target="_blank">
-                    <img src="dipinti/schiele.png" alt="Riproduzione di Schiele">
-                </a>
-                <div class="caption">
-                    <span class="title">Riproduzione di Schiele</span> -
-                    <span class="details">Acquerelli su carta (Ottobre 2026)</span>
+                <div class="artwork">
+                    <a href="dipinti/d0.png" target="_blank">
+                        <img src="dipinti/d0.png" alt="Dettaglio del volto di David">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Dettaglio del volto di David di Michelangelo</span> - 
+                        <span class="details">Matita su carta (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/angel.png" target="_blank">
-                    <img src="dipinti/angel.png" alt="Angel">
-                </a>
-                <div class="caption">
-                    <span class="title">Angel</span> -
-                    <span class="details">Acquerelli su carte (Ottobre 2026)</span>
+                <div class="artwork">
+                    <a href="dipinti/d1.png" target="_blank">
+                        <img src="dipinti/d1.png" alt="Biancaneve">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Biancaneve</span> - 
+                        <span class="details">Acquerelli su carta (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d14.png" target="_blank">
-                    <img src="dipinti/d14.png" alt="Ragazzo in chiaroscuro">
-                </a>
-                <div class="caption">
-                    <span class="title">ragazzo in chiaroscuro</span> - 
-                    <span class="details">Matita su carta (2026)</span>
+                <div class="artwork">
+                    <a href="dipinti/d2.png" target="_blank">
+                        <img src="dipinti/d2.png" alt="Superchicca rosa">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Superchicca rosa</span> - 
+                        <span class="details">Digitale (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d13.png" target="_blank">
-                    <img src="dipinti/d13.png" alt="Volto di Dante">
-                </a>
-                <div class="caption">
-                    <span class="title">Volto di Dante</span> - 
-                    <span class="details">Acquerelli su carta (2026)</span>
+                <div class="artwork">
+                    <a href="dipinti/d3.png" target="_blank">
+                        <img src="dipinti/d3.png" alt="Volto di donna con girasoli">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Volto di donna con girasoli</span> - 
+                        <span class="details">Acquerelli su carta (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d12.png" target="_blank">
-                    <img src="dipinti/d12.png" alt="Urla di una madre">
-                </a>
-                <div class="caption">
-                    <span class="title">Urla di una madre</span> - 
-                    <span class="details">Penna BIC blu su carta (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/d4.png" target="_blank">
+                        <img src="dipinti/d4.png" alt="Creatura fantastica">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Creatura fantastica</span> - 
+                        <span class="details">Penna BIC nera su carta (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d11.png" target="_blank">
-                    <img src="dipinti/d11.png" alt="Fanciulla">
-                </a>
-                <div class="caption">
-                    <span class="title">Fanciulla</span> - 
-                    <span class="details">Carboncino su carta (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/d5.png" target="_blank">
+                        <img src="dipinti/d5.png" alt="Busto di sirena">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Busto di sirena</span> - 
+                        <span class="details">Acquerelli su carta (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/tipa_vangogh.png" target="_blank">
-                    <img src="dipinti/tipa_vangogh.png" alt="Fanciulla Van Gogh">
-                </a>
-                <div class="caption">
-                    <span class="title">Fanciulla Van Gogh</span> - 
-                    <span class="details">Acrilici su carta (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/d6.png" target="_blank">
+                        <img src="dipinti/d6.png" alt="Volto di donna africana">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Volto di donna africana</span> - 
+                        <span class="details">Digitale (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d9.png" target="_blank">
-                    <img src="dipinti/d9.png" alt="Joker">
-                </a>
-                <div class="caption">
-                    <span class="title">Joker</span> - 
-                    <span class="details">Matita su carta (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/d7.png" target="_blank">
+                        <img src="dipinti/d7.png" alt="Drago fantasy">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Drago fantasy</span> - 
+                        <span class="details">Penna BIC blu su carta (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d7.png" target="_blank">
-                    <img src="dipinti/d7.png" alt="Drago fantasy">
-                </a>
-                <div class="caption">
-                    <span class="title">Drago fantasy</span> - 
-                    <span class="details">Penna BIC blu su carta (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/d9.png" target="_blank">
+                        <img src="dipinti/d9.png" alt="Joker">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Joker</span> - 
+                        <span class="details">Matita su carta (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d6.png" target="_blank">
-                    <img src="dipinti/d6.png" alt="Volto di donna africana">
-                </a>
-                <div class="caption">
-                    <span class="title">Volto di donna africana</span> - 
-                    <span class="details">Digitale (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/tipa_vangogh.png" target="_blank">
+                        <img src="dipinti/tipa_vangogh.png" alt="Fanciulla Van Gogh">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Fanciulla Van Gogh</span> - 
+                        <span class="details">Acrilici su carta (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d5.png" target="_blank">
-                    <img src="dipinti/d5.png" alt="Busto di sirena">
-                </a>
-                <div class="caption">
-                    <span class="title">Busto di sirena</span> - 
-                    <span class="details">Acquerelli su carta (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/d11.png" target="_blank">
+                        <img src="dipinti/d11.png" alt="Fanciulla">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Fanciulla</span> - 
+                        <span class="details">Carboncino su carta (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d4.png" target="_blank">
-                    <img src="dipinti/d4.png" alt="Creatura fantastica">
-                </a>
-                <div class="caption">
-                    <span class="title">Creatura fantastica</span> - 
-                    <span class="details">Penna BIC nera su carta (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/d12.png" target="_blank">
+                        <img src="dipinti/d12.png" alt="Urla di una madre">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Urla di una madre</span> - 
+                        <span class="details">Penna BIC blu su carta (202?)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d3.png" target="_blank">
-                    <img src="dipinti/d3.png" alt="Volto di donna con girasoli">
-                </a>
-                <div class="caption">
-                    <span class="title">Volto di donna con girasoli</span> - 
-                    <span class="details">Acquerelli su carta (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/d13.png" target="_blank">
+                        <img src="dipinti/d13.png" alt="Volto di Dante">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Volto di Dante</span> - 
+                        <span class="details">Acquerelli su carta (2026)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d2.png" target="_blank">
-                    <img src="dipinti/d2.png" alt="Superchicca rosa">
-                </a>
-                <div class="caption">
-                    <span class="title">Superchicca rosa</span> - 
-                    <span class="details">Digitale (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/d14.png" target="_blank">
+                        <img src="dipinti/d14.png" alt="Ragazzo in chiaroscuro">
+                    </a>
+                    <div class="caption">
+                        <span class="title">ragazzo in chiaroscuro</span> - 
+                        <span class="details">Matita su carta (2026)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d1.png" target="_blank">
-                    <img src="dipinti/d1.png" alt="Biancaneve">
-                </a>
-                <div class="caption">
-                    <span class="title">Biancaneve</span> - 
-                    <span class="details">Acquerelli su carta (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/angel.png" target="_blank">
+                        <img src="dipinti/angel.png" alt="Angel">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Angel</span> - 
+                        <span class="details">Acquerelli su carte (Ottobre 2026)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="dipinti/d0.png" target="_blank">
-                    <img src="dipinti/d0.png" alt="Dettaglio del volto di David">
-                </a>
-                <div class="caption">
-                    <span class="title">Dettaglio del volto di David di Michelangelo</span> - 
-                    <span class="details">Matita su carta (202?)</span>
+                <div class="artwork">
+                    <a href="dipinti/schiele.png" target="_blank">
+                        <img src="dipinti/schiele.png" alt="Riproduzione di Schiele">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Riproduzione di Schiele</span> -
+                        <span class="details">Acquerelli su carta (Ottobre 2026)</span>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </section>
 
     <!-- SEZIONE 3: FOTOGRAFIE -->
     <section id="fotografie" class="page-section">
         <div class="gallery">
+            <div class="gallery-grid">
 
-            <div class="artwork">
-                <a href="foto/f1.jpeg" target="_blank">
-                    <img src="foto/f1.jpeg" alt="Scorcio urbano">
-                </a>
-                <div class="caption">
-                    <span class="title">Tramonto sul Trasimeno</span> - 
-                    <span class="details">Samsung (2024)</span>
+                <div class="artwork">
+                    <a href="foto/f1.jpeg" target="_blank">
+                        <img src="foto/f1.jpeg" alt="Scorcio urbano">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Tramonto sul Trasimeno</span> - 
+                        <span class="details">Samsung (2024)</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="artwork">
-                <a href="foto/f0.JPG" target="_blank">
-                    <img src="foto/f0.JPG" alt="Tramonto in montagna">
-                </a>
-                <div class="caption">
-                    <span class="title">Tempio a Villa Borghese</span> - 
-                    <span class="details">Sony Alpha6000 (2025)</span>
+                <div class="artwork">
+                    <a href="foto/f0.JPG" target="_blank">
+                        <img src="foto/f0.JPG" alt="Tramonto in montagna">
+                    </a>
+                    <div class="caption">
+                        <span class="title">Tempio a Villa Borghese</span> - 
+                        <span class="details">Sony Alpha6000 (2025)</span>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </section>
 
