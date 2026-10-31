@@ -87,35 +87,34 @@
             color: #dddddd;
         }
 
-        /* Gallerie a Colonne (Invertite: gli elementi in fondo al codice appaiono per primi) */
+        /* Griglia Stile Instagram (3 Colonne in orizzontale) */
         .gallery {
-            display: flex;
-            flex-direction: column-reverse; /* Inverte l'ordine: l'ultimo in basso nel codice diventa il primo visibile */
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Sotto-griglia interna per mantenere il layout a colonne responsive */
         .gallery-grid {
-            column-count: 4;
-            column-gap: 20px;
-            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
         }
 
-        @media (max-width: 1200px) { .gallery-grid { column-count: 3; } }
-        @media (max-width: 800px) { .gallery-grid { column-count: 2; } }
+        @media (max-width: 800px) { 
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); } 
+        }
         @media (max-width: 500px) { 
-            .gallery-grid { column-count: 1; } 
+            .gallery-grid { grid-template-columns: 1fr; } 
             .intro-container { flex-direction: column; text-align: center; }
             nav { flex-direction: column; }
         }
 
         .artwork {
-            break-inside: avoid;
-            margin-bottom: 25px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            background: #111;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
         }
 
         .artwork a {
@@ -126,10 +125,9 @@
 
         .artwork img {
             width: 100%;
-            height: auto;
+            height: 280px; /* Altezza uniforme stile post Instagram */
+            object-fit: cover;
             display: block;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
@@ -139,14 +137,14 @@
         }
 
         .caption {
-            margin-top: 10px;
-            font-size: 0.9rem;
+            padding: 10px;
+            font-size: 0.85rem;
             color: #aaaaaa;
             text-align: center;
         }
 
         .title { color: #ffffff; font-weight: bold; }
-        .details { font-style: italic; }
+        .details { font-style: italic; display: block; margin-top: 4px; font-size: 0.8rem; }
 
         footer {
             margin-top: 60px;
@@ -191,14 +189,14 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
     <!-- SEZIONE 2: GALLERIA D'ARTE -->
     <section id="galleria" class="page-section">
         <div class="gallery">
-            <div class="gallery-grid">
+            <div class="gallery-grid" id="art-grid">
 
                 <div class="artwork">
                     <a href="dipinti/d0.png" target="_blank">
                         <img src="dipinti/d0.png" alt="Dettaglio del volto di David">
                     </a>
                     <div class="caption">
-                        <span class="title">Dettaglio del volto di David di Michelangelo</span> - 
+                        <span class="title">Dettaglio del volto di David di Michelangelo</span> 
                         <span class="details">Matita su carta (202?)</span>
                     </div>
                 </div>
@@ -208,7 +206,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d1.png" alt="Biancaneve">
                     </a>
                     <div class="caption">
-                        <span class="title">Biancaneve</span> - 
+                        <span class="title">Biancaneve</span> 
                         <span class="details">Acquerelli su carta (202?)</span>
                     </div>
                 </div>
@@ -218,7 +216,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d2.png" alt="Superchicca rosa">
                     </a>
                     <div class="caption">
-                        <span class="title">Superchicca rosa</span> - 
+                        <span class="title">Superchicca rosa</span> 
                         <span class="details">Digitale (202?)</span>
                     </div>
                 </div>
@@ -228,7 +226,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d3.png" alt="Volto di donna con girasoli">
                     </a>
                     <div class="caption">
-                        <span class="title">Volto di donna con girasoli</span> - 
+                        <span class="title">Volto di donna con girasoli</span> 
                         <span class="details">Acquerelli su carta (202?)</span>
                     </div>
                 </div>
@@ -238,7 +236,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d4.png" alt="Creatura fantastica">
                     </a>
                     <div class="caption">
-                        <span class="title">Creatura fantastica</span> - 
+                        <span class="title">Creatura fantastica</span> 
                         <span class="details">Penna BIC nera su carta (202?)</span>
                     </div>
                 </div>
@@ -248,7 +246,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d5.png" alt="Busto di sirena">
                     </a>
                     <div class="caption">
-                        <span class="title">Busto di sirena</span> - 
+                        <span class="title">Busto di sirena</span> 
                         <span class="details">Acquerelli su carta (202?)</span>
                     </div>
                 </div>
@@ -258,7 +256,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d6.png" alt="Volto di donna africana">
                     </a>
                     <div class="caption">
-                        <span class="title">Volto di donna africana</span> - 
+                        <span class="title">Volto di donna africana</span> 
                         <span class="details">Digitale (202?)</span>
                     </div>
                 </div>
@@ -268,7 +266,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d7.png" alt="Drago fantasy">
                     </a>
                     <div class="caption">
-                        <span class="title">Drago fantasy</span> - 
+                        <span class="title">Drago fantasy</span> 
                         <span class="details">Penna BIC blu su carta (202?)</span>
                     </div>
                 </div>
@@ -278,7 +276,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d9.png" alt="Joker">
                     </a>
                     <div class="caption">
-                        <span class="title">Joker</span> - 
+                        <span class="title">Joker</span> 
                         <span class="details">Matita su carta (202?)</span>
                     </div>
                 </div>
@@ -288,7 +286,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/tipa_vangogh.png" alt="Fanciulla Van Gogh">
                     </a>
                     <div class="caption">
-                        <span class="title">Fanciulla Van Gogh</span> - 
+                        <span class="title">Fanciulla Van Gogh</span> 
                         <span class="details">Acrilici su carta (202?)</span>
                     </div>
                 </div>
@@ -298,7 +296,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d11.png" alt="Fanciulla">
                     </a>
                     <div class="caption">
-                        <span class="title">Fanciulla</span> - 
+                        <span class="title">Fanciulla</span> 
                         <span class="details">Carboncino su carta (202?)</span>
                     </div>
                 </div>
@@ -308,7 +306,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d12.png" alt="Urla di una madre">
                     </a>
                     <div class="caption">
-                        <span class="title">Urla di una madre</span> - 
+                        <span class="title">Urla di una madre</span> 
                         <span class="details">Penna BIC blu su carta (202?)</span>
                     </div>
                 </div>
@@ -318,7 +316,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d13.png" alt="Volto di Dante">
                     </a>
                     <div class="caption">
-                        <span class="title">Volto di Dante</span> - 
+                        <span class="title">Volto di Dante</span> 
                         <span class="details">Acquerelli su carta (2026)</span>
                     </div>
                 </div>
@@ -328,7 +326,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/d14.png" alt="Ragazzo in chiaroscuro">
                     </a>
                     <div class="caption">
-                        <span class="title">ragazzo in chiaroscuro</span> - 
+                        <span class="title">ragazzo in chiaroscuro</span> 
                         <span class="details">Matita su carta (2026)</span>
                     </div>
                 </div>
@@ -338,7 +336,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/angel.png" alt="Angel">
                     </a>
                     <div class="caption">
-                        <span class="title">Angel</span> - 
+                        <span class="title">Angel</span> 
                         <span class="details">Acquerelli su carte (Ottobre 2026)</span>
                     </div>
                 </div>
@@ -348,7 +346,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="dipinti/schiele.png" alt="Riproduzione di Schiele">
                     </a>
                     <div class="caption">
-                        <span class="title">Riproduzione di Schiele</span> -
+                        <span class="title">Riproduzione di Schiele</span>
                         <span class="details">Acquerelli su carta (Ottobre 2026)</span>
                     </div>
                 </div>
@@ -360,14 +358,14 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
     <!-- SEZIONE 3: FOTOGRAFIE -->
     <section id="fotografie" class="page-section">
         <div class="gallery">
-            <div class="gallery-grid">
+            <div class="gallery-grid" id="photo-grid">
 
                 <div class="artwork">
                     <a href="foto/f1.jpeg" target="_blank">
                         <img src="foto/f1.jpeg" alt="Scorcio urbano">
                     </a>
                     <div class="caption">
-                        <span class="title">Tramonto sul Trasimeno</span> - 
+                        <span class="title">Tramonto sul Trasimeno</span> 
                         <span class="details">Samsung (2024)</span>
                     </div>
                 </div>
@@ -377,7 +375,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
                         <img src="foto/f0.JPG" alt="Tramonto in montagna">
                     </a>
                     <div class="caption">
-                        <span class="title">Tempio a Villa Borghese</span> - 
+                        <span class="title">Tempio a Villa Borghese</span> 
                         <span class="details">Sony Alpha6000 (2025)</span>
                     </div>
                 </div>
@@ -390,21 +388,32 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
         &copy; 2026 Laura Francesca Iacob. Tutti i diritti riservati.
     </footer>
 
-    <!-- Script JavaScript per gestire il cambio pagina senza ricaricare -->
+    <!-- Script JavaScript per gestire il cambio pagina e l'ordine dei post -->
     <script>
         function showPage(pageId, btnElement) {
-            // Nasconde tutte le sezioni
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(section => section.classList.remove('active'));
 
-            // Rimuove lo stato attivo da tutti i pulsanti
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            // Mostra la sezione selezionata e attiva il pulsante
             document.getElementById(pageId).classList.add('active');
             btnElement.classList.add('active');
         }
+
+        // Funzione automatica: legge gli elementi dal codice e li mostra in ordine inverso
+        // (il nuovo lavoro aggiunto in fondo al codice apparirà per primo in alto a sinistra)
+        function reverseGrid(gridId) {
+            const grid = document.getElementById(gridId);
+            if (grid) {
+                const items = Array.from(grid.children);
+                grid.innerHTML = '';
+                items.reverse().forEach(item => grid.appendChild(item));
+            }
+        }
+
+        reverseGrid('art-grid');
+        reverseGrid('photo-grid');
     </script>
     
     <script>
