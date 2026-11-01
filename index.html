@@ -87,28 +87,32 @@
             color: #dddddd;
         }
 
-        /* Griglia Stile Instagram (3 Colonne in orizzontale) */
+        /* Griglia a 4 colonne con proporzioni originali (stile Masonry) */
         .gallery {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            column-count: 4;
+            column-gap: 15px;
         }
 
-        @media (max-width: 800px) { 
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); } 
+        @media (max-width: 1024px) { 
+            .gallery-grid { column-count: 3; } 
+        }
+        @media (max-width: 768px) { 
+            .gallery-grid { column-count: 2; } 
         }
         @media (max-width: 500px) { 
-            .gallery-grid { grid-template-columns: 1fr; } 
+            .gallery-grid { column-count: 1; } 
             .intro-container { flex-direction: column; text-align: center; }
             nav { flex-direction: column; }
         }
 
         .artwork {
+            break-inside: avoid; /* Impedisce che il blocco si spezzi tra una colonna e l'altra */
+            margin-bottom: 15px;
             display: flex;
             flex-direction: column;
             background: #111;
@@ -125,8 +129,7 @@
 
         .artwork img {
             width: 100%;
-            height: 280px; /* Altezza uniforme stile post Instagram */
-            object-fit: cover;
+            height: auto; /* Mantiene le proporzioni originali senza tagliare l'immagine */
             display: block;
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
@@ -328,7 +331,7 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
       &copy; 2026 Laura Francesca Iacob. Tutti i diritti riservati.
     </footer>
 
-    <!-- Script JavaScript per gestire il cambio pagina e l'ordine dei post -->
+    <!-- Script JavaScript per gestire il cambio pagina -->
     <script>
         function showPage(pageId, btnElement) {
             const sections = document.querySelectorAll('.page-section');
@@ -340,20 +343,6 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
             document.getElementById(pageId).classList.add('active');
             btnElement.classList.add('active');
         }
-
-        // Funzione automatica: legge gli elementi dal codice e li mostra in ordine inverso
-        // (il nuovo lavoro aggiunto in fondo al codice apparirà per primo in alto a sinistra)
-        function reverseGrid(gridId) {
-            const grid = document.getElementById(gridId);
-            if (grid) {
-                const items = Array.from(grid.children);
-                grid.innerHTML = '';
-                items.reverse().forEach(item => grid.appendChild(item));
-            }
-        }
-
-        reverseGrid('art-grid');
-        reverseGrid('photo-grid');
     </script>
     
     <script>
@@ -362,4 +351,3 @@ P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picte
     
 </body>
 </html>
-
