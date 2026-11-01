@@ -13,7 +13,7 @@
             padding: 20px;
         }
 
-        /* Titolo Case Sensitive */
+        /* Titolo */
         h1 {
             font-size: 2.2rem;
             margin-top: 20px;
@@ -52,11 +52,11 @@
 
         /* Gestione Visibilità Sezioni */
         .page-section {
-            display: none; /* Di base tutte le pagine sono nascoste */
+            display: none;
         }
 
         .page-section.active {
-            display: block; /* Solo la pagina attiva viene mostrata */
+            display: block;
         }
 
         /* Pagina Chi Sono */
@@ -87,32 +87,40 @@
             color: #dddddd;
         }
 
-        /* Griglia a 4 colonne con proporzioni originali (stile Masonry) */
+        /* MODIFICA: Galleria con scorrimento orizzontale stile Instagram */
         .gallery {
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .gallery-grid {
-            column-count: 4;
-            column-gap: 15px;
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
         }
 
-        @media (max-width: 1024px) { 
-            .gallery-grid { column-count: 3; } 
+        /* Nascondi la barra di scorrimento ma mantieni la funzionalità (opzionale) */
+        .gallery-grid::-webkit-scrollbar {
+            height: 8px;
         }
-        @media (max-width: 768px) { 
-            .gallery-grid { column-count: 2; } 
+        .gallery-grid::-webkit-scrollbar-track {
+            background: #111;
+            border-radius: 4px;
         }
-        @media (max-width: 500px) { 
-            .gallery-grid { column-count: 1; } 
-            .intro-container { flex-direction: column; text-align: center; }
-            nav { flex-direction: column; }
+        .gallery-grid::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 4px;
+        }
+        .gallery-grid::-webkit-scrollbar-thumb:hover {
+            background: #666;
         }
 
         .artwork {
-            break-inside: avoid; /* Impedisce che il blocco si spezzi tra una colonna e l'altra */
-            margin-bottom: 15px;
+            flex: 0 0 320px; /* Larghezza fissa per ogni elemento nello scorrimento orizzontale */
+            scroll-snap-align: start;
             display: flex;
             flex-direction: column;
             background: #111;
@@ -129,7 +137,8 @@
 
         .artwork img {
             width: 100%;
-            height: auto; /* Mantiene le proporzioni originali senza tagliare l'immagine */
+            height: 380px; /* Altezza fissa per uniformare il carosello orizzontale */
+            object-fit: cover; /* Taglia l'immagine per riempire la card in modo pulito */
             display: block;
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
@@ -149,6 +158,12 @@
         .title { color: #ffffff; font-weight: bold; }
         .details { font-style: italic; display: block; margin-top: 4px; font-size: 0.8rem; }
 
+        @media (max-width: 500px) {
+            .intro-container { flex-direction: column; text-align: center; }
+            nav { flex-direction: column; }
+            .artwork { flex: 0 0 260px; }
+        }
+
         footer {
             margin-top: 60px;
             text-align: center;
@@ -163,7 +178,7 @@
 
     <h1>Portfolio Creativo di Laura 🎨</h1>
 
-    <!-- Menu con pulsanti invece che link -->
+    <!-- Menu con pulsanti -->
     <nav>
         <button class="nav-btn active" onclick="showPage('chi-sono', this)">Chi Sono</button>
         <button class="nav-btn" onclick="showPage('galleria', this)">Galleria d'Arte</button>
@@ -179,12 +194,12 @@
             <div class="intro-text">
                 <p>
                     Benvenuti nel mio portfolio artistico 🪷 !<br>
-Sono Laura Francesca Iacob, studio (o almeno ci provo) Fisica Teorica all'Università degli Studi di Trieste, ma sento la necessità di impegnare il mio tempo libero (quel poco che rimane) in attività creative.
-Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. Enjoy! 
+                    Sono Laura Francesca Iacob, studio (o almeno ci provo) Fisica Teorica all'Università degli Studi di Trieste, ma sento la necessità di impegnare il mio tempo libero (quel poco che rimane) in attività creative.
+                    Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. Enjoy! 
                 </p>
-				<p>
-					P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picter</i>.
-				</p>
+                <p>
+                    P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picter</i>.
+                </p>
                 <p>
                     Contatti: iacob.laura.f@gmail.com
                 </p>
@@ -197,7 +212,7 @@ Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. E
         <div class="gallery">
           <div class="gallery-grid" id="art-grid">
 
-	    <div class="artwork">
+            <div class="artwork">
               <a href="dipinti/schiele.png" target="_blank">
                 <img src="dipinti/schiele.png" alt="Riproduzione di Schiele">
               </a>
@@ -205,9 +220,9 @@ Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. E
                 <span class="title">Riproduzione di Schiele</span>
                 <span class="details">Acquerello su carta (Ottobre 2026)</span>
               </div>
-	    </div>
+            </div>
 
-	    <div class="artwork">
+            <div class="artwork">
               <a href="dipinti/angel.png" target="_blank">
                 <img src="dipinti/angel.png" alt="Angel">
               </a>
@@ -216,7 +231,7 @@ Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. E
                 <span class="details">Acquerello su carta (Ottobre 2026)</span>
               </div>
             </div>
-	    
+            
             <div class="artwork">
               <a href="dipinti/ragazzo.png" target="_blank">
                 <img src="dipinti/ragazzo.png" alt="Giovane ragazzo">
@@ -247,7 +262,7 @@ Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. E
               </div>
             </div>
 
-	    <div class="artwork">
+            <div class="artwork">
               <a href="dipinti/inverno.png" target="_blank">
                 <img src="dipinti/inverno.png" alt="Inverno">
               </a>
@@ -257,7 +272,7 @@ Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. E
               </div>
             </div>
 
-	    <div class="artwork">
+            <div class="artwork">
               <a href="dipinti/fumatore.png" target="_blank">
                 <img src="dipinti/fumatore.png" alt="Fumatore">
               </a>
@@ -267,7 +282,7 @@ Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. E
               </div>
             </div>
 
-	    <div class="artwork">
+            <div class="artwork">
               <a href="dipinti/sibilla.png" target="_blank">
                 <img src="dipinti/sibilla.png" alt="Sibilla">
               </a>
@@ -277,7 +292,7 @@ Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. E
               </div>
             </div>
 
-	    <div class="artwork">
+            <div class="artwork">
               <a href="dipinti/fata_triste.png" target="_blank">
                 <img src="dipinti/fata_triste.png" alt="Fata triste">
               </a>
@@ -287,7 +302,7 @@ Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. E
               </div>
             </div>
 
-	    <div class="artwork">
+            <div class="artwork">
               <a href="dipinti/ninfa_boschiva.png" target="_blank">
                 <img src="dipinti/ninfa_boschiva.png" alt="Ninfa boschiva">
               </a>
@@ -322,7 +337,7 @@ Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. E
             </a>
             <div class="caption">
               <span class="title">Tempio a Villa Borghese</span>
-	      <span class="details">Sony Alpha6000 (2025)</span>
+              <span class="details">Sony Alpha6000 (2025)</span>
             </div>
           </div>
 
