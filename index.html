@@ -13,7 +13,7 @@
             padding: 20px;
         }
 
-        /* Titolo */
+        /* Titolo Case Sensitive */
         h1 {
             font-size: 2.2rem;
             margin-top: 20px;
@@ -52,11 +52,11 @@
 
         /* Gestione Visibilità Sezioni */
         .page-section {
-            display: none;
+            display: none; /* Di base tutte le pagine sono nascoste */
         }
 
         .page-section.active {
-            display: block;
+            display: block; /* Solo la pagina attiva viene mostrata */
         }
 
         /* Pagina Chi Sono */
@@ -87,26 +87,23 @@
             color: #dddddd;
         }
 
-        /* Griglia a 4 colonne con proporzioni originali */
+        /* Griglia Stile Instagram (3 Colonne in orizzontale) */
         .gallery {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
         }
 
-        @media (max-width: 1024px) { 
-            .gallery-grid { grid-template-columns: repeat(3, 1fr); } 
-        }
-        @media (max-width: 768px) { 
+        @media (max-width: 800px) { 
             .gallery-grid { grid-template-columns: repeat(2, 1fr); } 
         }
         @media (max-width: 500px) { 
-            .gallery-grid { grid-template-columns: repeat(1, 1fr); } 
+            .gallery-grid { grid-template-columns: 1fr; } 
             .intro-container { flex-direction: column; text-align: center; }
             nav { flex-direction: column; }
         }
@@ -128,7 +125,8 @@
 
         .artwork img {
             width: 100%;
-            height: auto; /* Mantiene le proporzioni originali reali */
+            height: 280px; /* Altezza uniforme stile post Instagram */
+            object-fit: cover;
             display: block;
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
@@ -162,7 +160,7 @@
 
     <h1>Portfolio Creativo di Laura 🎨</h1>
 
-    <!-- Menu con pulsanti -->
+    <!-- Menu con pulsanti invece che link -->
     <nav>
         <button class="nav-btn active" onclick="showPage('chi-sono', this)">Chi Sono</button>
         <button class="nav-btn" onclick="showPage('galleria', this)">Galleria d'Arte</button>
@@ -178,14 +176,11 @@
             <div class="intro-text">
                 <p>
                     Benvenuti nel mio portfolio artistico 🪷 !<br>
-                    Sono Laura Francesca Iacob, studio (o almeno ci provo) Fisica Teorica all'Università degli Studi di Trieste, ma sento la necessità di impegnare il mio tempo libero (quel poco che rimane) in attività creative.
-                    Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. Enjoy! 
+		    Sono Laura Francesca Iacob, studio (o almeno ci provo) Fisica Teorica all'Università degli Studi di Trieste, ma sento la necessità di impegnare il mio tempo libero (quel poco che rimane) in attività creative. Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. Enjoy! <br>
+		    P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picter</i>. 
                 </p>
                 <p>
-                    P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picter</i>.
-                </p>
-                <p>
-                    Contatti: iacob.laura.f@gmail.com
+                  Contatti: iacob.laura.f@gmail.com
                 </p>
             </div>
         </div>
@@ -193,111 +188,242 @@
 
     <!-- SEZIONE 2: GALLERIA D'ARTE -->
     <section id="galleria" class="page-section">
-        <div class="gallery">
-          <div class="gallery-grid" id="art-grid">
+      <div class="gallery">
+        <div class="gallery-grid" id="art-grid">
 
-            <div class="artwork">
-              <a href="dipinti/schiele.png" target="_blank">
-                <img src="dipinti/schiele.png" alt="Riproduzione di Schiele">
-              </a>
-              <div class="caption">
-                <span class="title">Riproduzione di Schiele</span>
-                <span class="details">Acquerello su carta (Ottobre 2026)</span>
-              </div>
+	  <div class="artwork">
+            <a href="dipinti/schiele.png" target="_blank">
+              <img src="dipinti/schiele.png" alt="Riproduzione di Schiele">
+            </a>
+            <div class="caption">
+              <span class="title">Riproduzione di Schiele</span>
+              <span class="details">Acquerello su carta (Ottobre 2026)</span>
             </div>
+	  </div>
 
-            <div class="artwork">
-              <a href="dipinti/angel.png" target="_blank">
-                <img src="dipinti/angel.png" alt="Angel">
-              </a>
-              <div class="caption">
-                <span class="title">Angel</span> 
-                <span class="details">Acquerello su carta (Ottobre 2026)</span>
-              </div>
+	  <div class="artwork">
+            <a href="dipinti/angel.png" target="_blank">
+              <img src="dipinti/angel.png" alt="Angel">
+            </a>
+            <div class="caption">
+              <span class="title">Angel</span> 
+              <span class="details">Acquerello su carta (Ottobre 2026)</span>
             </div>
-            
-            <div class="artwork">
-              <a href="dipinti/ragazzo.png" target="_blank">
-                <img src="dipinti/ragazzo.png" alt="Giovane ragazzo">
-              </a>
-              <div class="caption">
-                <span class="title">Giovane ragazzo</span> 
-                <span class="details">Matita su carta (Settembre 2026)</span>
-              </div>
-            </div>
-
-            <div class="artwork">
-              <a href="dipinti/dante.png" target="_blank">
-                <img src="dipinti/dante.png" alt="Dante">
-              </a>
-              <div class="caption">
-                <span class="title">Dante</span> 
-                <span class="details">Acquerello su carta (Maggio 2026)</span>
-              </div>
-            </div>
-
-            <div class="artwork">
-              <a href="dipinti/madre_piangente.png" target="_blank">
-                <img src="dipinti/madre_piangente.png" alt="Madre piangente">
-              </a>
-              <div class="caption">
-                <span class="title">Madre piangente</span> 
-                <span class="details">Penna su carta (Gennaio 2025)</span>
-              </div>
-            </div>
-
-            <div class="artwork">
-              <a href="dipinti/inverno.png" target="_blank">
-                <img src="dipinti/inverno.png" alt="Inverno">
-              </a>
-              <div class="caption">
-                <span class="title">Inverno</span> 
-                <span class="details">Acquerello su carta (Settembre 2026)</span>
-              </div>
-            </div>
-
-            <div class="artwork">
-              <a href="dipinti/fumatore.png" target="_blank">
-                <img src="dipinti/fumatore.png" alt="Fumatore">
-              </a>
-              <div class="caption">
-                <span class="title">Fumatore</span> 
-                <span class="details">Carboncino su carta (Settembre 2026)</span>
-              </div>
-            </div>
-
-            <div class="artwork">
-              <a href="dipinti/sibilla.png" target="_blank">
-                <img src="dipinti/sibilla.png" alt="Sibilla">
-              </a>
-              <div class="caption">
-                <span class="title">Sibilla</span> 
-                <span class="details">Acquerello su carta (Luglio 2026)</span>
-              </div>
-            </div>
-
-            <div class="artwork">
-              <a href="dipinti/fata_triste.png" target="_blank">
-                <img src="dipinti/fata_triste.png" alt="Fata triste">
-              </a>
-              <div class="caption">
-                <span class="title">Fata triste</span> 
-                <span class="details">Acquerello su carta (Luglio 2026)</span>
-              </div>
-            </div>
-
-            <div class="artwork">
-              <a href="dipinti/ninfa_boschiva.png" target="_blank">
-                <img src="dipinti/ninfa_boschiva.png" alt="Ninfa boschiva">
-              </a>
-              <div class="caption">
-                <span class="title">Ninfa boschiva</span> 
-                <span class="details">Acrilico su tela (Giugno 2026)</span>
-              </div>
-            </div>
-
           </div>
+	  
+	  <div class="artwork">
+            <a href="dipinti/inverno.png" target="_blank">
+              <img src="dipinti/inverno.png" alt="Inverno">
+            </a>
+            <div class="caption">
+              <span class="title">Inverno</span> 
+              <span class="details">Acquerello su carta (Settembre 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/fumatore.png" target="_blank">
+              <img src="dipinti/fumatore.png" alt="Fumatore">
+            </a>
+            <div class="caption">
+              <span class="title">Fumatore</span> 
+              <span class="details">Carboncino su carta (Settembre 2026)</span>
+            </div>
+          </div>
+	  
+          <div class="artwork">
+            <a href="dipinti/ragazzo.png" target="_blank">
+              <img src="dipinti/ragazzo.png" alt="Giovane ragazzo">
+            </a>
+            <div class="caption">
+              <span class="title">Giovane ragazzo</span> 
+              <span class="details">Matita su carta (Settembre 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/contrasti_gialloblu.png" target="_blank">
+              <img src="dipinti/contrasti_gialloblu.png" alt="Contrasti giallo-blu">
+            </a>
+            <div class="caption">
+              <span class="title">Contrasti giallo-blu</span> 
+              <span class="details">Pastello ad olio su carta (Agosto 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/sibilla.png" target="_blank">
+              <img src="dipinti/sibilla.png" alt="Sibilla">
+            </a>
+            <div class="caption">
+              <span class="title">Sibilla</span> 
+              <span class="details">Acquerello su carta (Luglio 2026)</span>
+            </div>
+	  </div>
+
+	  <div class="artwork">
+            <a href="dipinti/polipo_tartaruga.png" target="_blank">
+              <img src="dipinti/polipo_tartaruga.png" alt="Polipetto e tartarughina">
+            </a>
+            <div class="caption">
+              <span class="title">Polipetto e tartarughina</span> 
+              <span class="details">Acquerello su carta (Luglio 2026)</span>
+            </div>
+          </div>
+	  
+	  <div class="artwork">
+            <a href="dipinti/fata_triste.png" target="_blank">
+              <img src="dipinti/fata_triste.png" alt="Fata triste">
+            </a>
+            <div class="caption">
+              <span class="title">Fata triste</span> 
+              <span class="details">Acquerello su carta (Luglio 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/uccellino.png" target="_blank">
+              <img src="dipinti/uccellino.png" alt="Uccellino sulla neve">
+            </a>
+            <div class="caption">
+              <span class="title">Uccellino sulla neve</span> 
+              <span class="details">Acquerello su carta (Luglio 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/ninfa_boschiva.png" target="_blank">
+              <img src="dipinti/ninfa_boschiva.png" alt="Ninfa boschiva">
+            </a>
+            <div class="caption">
+              <span class="title">Ninfa boschiva</span> 
+              <span class="details">Acrilico su tela (Giugno 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/cherry_cake.png" target="_blank">
+              <img src="dipinti/cherry_cake.png" alt="Feta di torta">
+            </a>
+            <div class="caption">
+              <span class="title">Fetta di torta</span> 
+              <span class="details">Acrilico su carta (Maggio 2026)</span>
+            </div>
+          </div>
+
+          <div class="artwork">
+            <a href="dipinti/dante.png" target="_blank">
+              <img src="dipinti/dante.png" alt="Dante">
+            </a>
+            <div class="caption">
+              <span class="title">Dante</span> 
+              <span class="details">Acquerello su carta (Maggio 2026)</span>
+            </div>
+          </div>
+
+	  
+	  <div class="artwork">
+            <a href="dipinti/boecklin.png" target="_blank">
+              <img src="dipinti/boecklin.png" alt="Riproduzione di Boecklin">
+            </a>
+            <div class="caption">
+              <span class="title">Riproduzione di Boecklin</span> 
+              <span class="details">Acquerello su carta (Maggio 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/life.png" target="_blank">
+              <img src="dipinti/life.png" alt="Life">
+            </a>
+            <div class="caption">
+              <span class="title">Life</span> 
+              <span class="details">Acquerello su carta (Maggio 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/tempietto_santangelo.png" target="_blank">
+              <img src="dipinti/tempietto_santangelo.png" alt="Tempietto di Sant'Angelo">
+            </a>
+            <div class="caption">
+              <span class="title">Tempietto di Sant Angelo</span> 
+              <span class="details">Acquerello su carta (Aprile 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/creatura_folk.png" target="_blank">
+              <img src="dipinti/creatura_folk.png" alt="Creatura folk">
+            </a>
+            <div class="caption">
+              <span class="title">Creatura folk</span> 
+              <span class="details">Acquerello su carta (Aprile 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/ninf(e)a.png" target="_blank">
+              <img src="dipinti/ninf(e)a.png" alt="Ninf(e)a">
+            </a>
+            <div class="caption">
+              <span class="title">Ninf(e)a</span> 
+              <span class="details">Acquerello su carta (Aprile 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/goya.png" target="_blank">
+              <img src="dipinti/goya.png" alt="Riproduzione di Goya">
+            </a>
+            <div class="caption">
+              <span class="title">Riproduzione di Goya</span> 
+              <span class="details">Acrilico su carta (Febbraio 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/corna.png" target="_blank">
+              <img src="dipinti/corna.png" alt="Creatura con le corna">
+            </a>
+            <div class="caption">
+              <span class="title">Creatura con le corna</span> 
+              <span class="details">Digitale (Febbraio 2026)</span>
+            </div>
+	  </div>
+	  
+	  <div class="artwork">
+            <a href="dipinti/vergine.png" target="_blank">
+              <img src="dipinti/vergine.png" alt="La Vergine">
+            </a>
+            <div class="caption">
+              <span class="title">La Vergine</span> 
+              <span class="details">Acquerello su carta (Febbraio 2026)</span>
+            </div>
+          </div>
+
+	  <div class="artwork">
+            <a href="dipinti/storm.png" target="_blank">
+              <img src="dipinti/storm.png" alt="Riproduzione di A storm in the rocky mountains">
+            </a>
+            <div class="caption">
+              <span class="title"><it>Riproduzione di A storm in the rocky mountains</it></span> 
+              <span class="details">Acrilico su carta (Febbraio 2026)</span>
+            </div>
+          </div>
+	  
+	  <div class="artwork">
+            <a href="dipinti/madre_piangente.png" target="_blank">
+              <img src="dipinti/madre_piangente.png" alt="Madre piangente">
+            </a>
+            <div class="caption">
+              <span class="title">Madre piangente</span> 
+              <span class="details">Penna su carta (Gennaio 2025)</span>
+            </div>
+          </div>
+
         </div>
+      </div>
     </section>
 
     <!-- SEZIONE 3: FOTOGRAFIE -->
@@ -321,7 +447,7 @@
             </a>
             <div class="caption">
               <span class="title">Tempio a Villa Borghese</span>
-              <span class="details">Sony Alpha6000 (2025)</span>
+	      <span class="details">Sony Alpha6000 (2025)</span>
             </div>
           </div>
 
@@ -333,7 +459,7 @@
       &copy; 2026 Laura Francesca Iacob. Tutti i diritti riservati.
     </footer>
 
-    <!-- Script JavaScript per gestire il cambio pagina -->
+    <!-- Script JavaScript per gestire il cambio pagina e l'ordine dei post -->
     <script>
         function showPage(pageId, btnElement) {
             const sections = document.querySelectorAll('.page-section');
@@ -345,6 +471,20 @@
             document.getElementById(pageId).classList.add('active');
             btnElement.classList.add('active');
         }
+
+        // Funzione automatica: legge gli elementi dal codice e li mostra in ordine inverso
+        // (il nuovo lavoro aggiunto in fondo al codice apparirà per primo in alto a sinistra)
+        function reverseGrid(gridId) {
+            const grid = document.getElementById(gridId);
+            if (grid) {
+                const items = Array.from(grid.children);
+                grid.innerHTML = '';
+                items.reverse().forEach(item => grid.appendChild(item));
+            }
+        }
+
+        reverseGrid('art-grid');
+        reverseGrid('photo-grid');
     </script>
     
     <script>
