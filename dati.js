@@ -119,12 +119,12 @@ const opereArte = [
 const fotografie = [
     {
         titolo: "Tramonto sul Trasimeno",
-        file: "foto/f1.jpeg",
+        file: "foto/san_feliciano.png",
         dettagli: "Samsung (2024)"
     },
     {
         titolo: "Tempio a Villa Borghese",
-        file: "foto/f0.JPG",
+        file: "foto/villa_borghese.png",
         dettagli: "Sony Alpha6000 (2025)"
     }
 ];
