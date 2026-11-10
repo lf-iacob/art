@@ -1,5 +1,10 @@
 const opereArte = [
     {
+        titolo: "Riproduzione di Modigliani",
+        file: "dipinti/modigliani.png",
+        dettagli: "Acquerello su carta (Novembre 2026)"
+    },
+    {
         titolo: "Riproduzione di Schiele",
         file: "dipinti/schiele.png",
         dettagli: "Acquerello su carta (Ottobre 2026)"
@@ -118,13 +123,14 @@ const opereArte = [
 
 const fotografie = [
     {
-        titolo: "Tramonto sul Trasimeno",
-        file: "foto/san_feliciano.png",
-        dettagli: "Samsung (2024)"
-    },
-    {
         titolo: "Tempio a Villa Borghese",
         file: "foto/villa_borghese.png",
         dettagli: "Sony Alpha6000 (2025)"
+    },
+    {
+        titolo: "Tramonto sul Trasimeno",
+        file: "foto/san_feliciano.png",
+        dettagli: "Samsung (2024)"
     }
 ];
+
