@@ -1,5 +1,10 @@
 const opereArte = [
     {
+        titolo: "Donna in rosso",
+        file: "dipinti/donna_in_rosso.png",
+        dettagli: "Acquerello su carta (Novembre 2026)"
+    },
+    {
         titolo: "Riproduzione di Modigliani",
         file: "dipinti/modigliani.png",
         dettagli: "Acquerello su carta (Novembre 2026)"
