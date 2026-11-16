@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Creativo - Laura</title>
     <style>
-        /* [Lascia qui tutti i tuoi stili CSS attuali, sono perfetti così] */
         body {
             background-color: #000000;
             color: #ffffff;
@@ -23,14 +22,32 @@
         .intro-image { flex: 1; max-width: 400px; }
         .intro-image img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); }
         .intro-text { flex: 1.5; font-size: 1.1rem; line-height: 1.8; color: #dddddd; }
+        
+        /* Galleria aggiornata con layout Masonry per rispettare le proporzioni reali */
         .gallery { max-width: 1200px; margin: 0 auto; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        @media (max-width: 800px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 500px) { .gallery-grid { grid-template-columns: 1fr; } .intro-container { flex-direction: column; text-align: center; } nav { flex-direction: column; } }
-        .artwork { display: flex; flex-direction: column; background: #111; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05); }
+        .gallery-grid { column-count: 3; column-gap: 15px; }
+        @media (max-width: 800px) { .gallery-grid { column-count: 2; } }
+        @media (max-width: 500px) { .gallery-grid { column-count: 1; } .intro-container { flex-direction: column; text-align: center; } nav { flex-direction: column; } }
+        
+        .artwork { 
+            display: inline-block; 
+            width: 100%; 
+            margin-bottom: 15px; 
+            break-inside: avoid; 
+            background: #111; 
+            border-radius: 4px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05); 
+        }
         .artwork a { display: block; width: 100%; text-decoration: none; }
-        .artwork img { width: 100%; height: 280px; object-fit: cover; display: block; transition: transform 0.2s ease, opacity 0.2s ease; }
+        .artwork img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            transition: transform 0.2s ease, opacity 0.2s ease; 
+        }
         .artwork img:hover { transform: scale(1.02); opacity: 0.9; }
+        
         .caption { padding: 10px; font-size: 0.85rem; color: #aaaaaa; text-align: center; }
         .title { color: #ffffff; font-weight: bold; }
         .details { font-style: italic; display: block; margin-top: 4px; font-size: 0.8rem; }
@@ -42,94 +59,4 @@
     <h1>Portfolio Creativo di Laura 🎨</h1>
 
     <nav>
-        <button class="nav-btn active" onclick="showPage('chi-sono', this)">Chi Sono</button>
-        <button class="nav-btn" onclick="showPage('galleria', this)">Galleria d'Arte</button>
-        <button class="nav-btn" onclick="showPage('fotografie', this)">Fotografie</button>
-    </nav>
-
-    <!-- SEZIONE 1: CHI SONO -->
-    <section id="chi-sono" class="page-section active">
-        <div class="intro-container">
-            <div class="intro-image">
-                <img src="foto_profilo.jpeg" alt="Laura Francesca Iacob">
-            </div>
-            <div class="intro-text">
-                <p>
-                    Benvenuti nel mio portfolio artistico 🪷 !<br>
-                    Sono Laura Francesca Iacob, studio (o almeno ci provo) Fisica Teorica all'Università degli Studi di Trieste, ma sento la necessità di impegnare il mio tempo libero (quel poco che rimane) in attività creative. Qui raccolgo i miei disegni e le foto scattate che ritengo più degne di nota. Enjoy! <br>
-                    P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picter</i>. 
-                </p>
-                <p>
-                  Contatti: iacob.laura.f@gmail.com
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEZIONE 2: GALLERIA D'ARTE (Generata da JS) -->
-    <section id="galleria" class="page-section">
-      <div class="gallery">
-        <div class="gallery-grid" id="art-grid"></div>
-      </div>
-    </section>
-
-    <!-- SEZIONE 3: FOTOGRAFIE (Generata da JS) -->
-    <section id="fotografie" class="page-section">
-      <div class="gallery">
-        <div class="gallery-grid" id="photo-grid"></div>
-      </div>
-    </section>
-
-    <footer>
-      &copy; 2026 Laura Francesca Iacob. Tutti i diritti riservati.
-    </footer>
-
-    <!-- Includi il file dei dati -->
-    <script src="dati.js"></script>
-
-    <!-- Script per generare dinamicamente le griglie -->
-    <script>
-        function showPage(pageId, btnElement) {
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(section => section.classList.remove('active'));
-
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            document.getElementById(pageId).classList.add('active');
-            btnElement.classList.add('active');
-        }
-
-        function caricaGriglia(arrayDati, gridId) {
-            const grid = document.getElementById(gridId);
-            if (grid) {
-                grid.innerHTML = '';
-                // Se vuoi l'ordine cronologico inverso (ultimi inseriti in alto), tieni .reverse()
-                // Altrimenti rimuovilo se preferisci l'ordine di scrittura.
-                arrayDati.forEach(item => {
-                    const htmlItem = `
-                        <div class="artwork">
-                            <a href="${item.file}" target="_blank">
-                                <img src="${item.file}" alt="${item.titolo}">
-                            </a>
-                            <div class="caption">
-                                <span class="title">${item.titolo}</span>
-                                <span class="details">${item.dettagli}</span>
-                            </div>
-                        </div>
-                    `;
-                    grid.innerHTML += htmlItem;
-                });
-            }
-        }
-
-        // Popola le griglie all'avvio della pagina
-        caricaGriglia(opereArte, 'art-grid');
-        caricaGriglia(fotografie, 'photo-grid');
-    </script>
-    
-    <script>
-      document.addEventListener('contextmenu', event => event.preventDefault());
-    </script>
-</body>
-</html>
+        <button class="nav-btn active" onclick="
