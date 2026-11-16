@@ -59,4 +59,98 @@
     <h1>Portfolio Creativo di Laura 🎨</h1>
 
     <nav>
-        <button class="nav-btn active" onclick="
+        <button class="nav-btn active" onclick="showPage('chi-sono', this)">Chi Sono</button>
+        <button class="nav-btn" onclick="showPage('galleria', this)">Galleria d'Arte</button>
+        <button class="nav-btn" onclick="showPage('fotografie', this)">Fotografie</button>
+    </nav>
+
+    <!-- SEZIONE 1: CHI SONO -->
+    <section id="chi-sono" class="page-section active">
+        <div class="intro-container">
+            <div class="intro-image">
+                <img src="foto_profilo.jpeg" alt="Laura Francesca Iacob">
+            </div>
+            <div class="intro-text">
+                <p>
+                    Benvenuti nel mio portfolio artistico 🪷 !<br>
+                    Sono Laura Francesca Iacob, studio (o almeno ci provo) Fisica Teorica all'Università degli Studi di Trieste, 
+                    ma sento la necessità di impegnare il mio tempo libero (quel poco che rimane) in attività creative. Qui raccolgo 
+                    i miei disegni e le foto scattate che ritengo più degne di nota. Enjoy! <br>
+                </p>
+                <p>
+                    P.S. Sono disponibile per commissioni che rientrino nel mio <i>manière de picter</i>. 
+                </p>
+                <p>
+                  Contatti: iacob.laura.f@gmail.com
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE 2: GALLERIA D'ARTE (Generata da JS) -->
+    <section id="galleria" class="page-section">
+      <div class="gallery">
+        <div class="gallery-grid" id="art-grid"></div>
+      </div>
+    </section>
+
+    <!-- SEZIONE 3: FOTOGRAFIE (Generata da JS) -->
+    <section id="fotografie" class="page-section">
+      <div class="gallery">
+        <div class="gallery-grid" id="photo-grid"></div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Laura Francesca Iacob. Tutti i diritti riservati.
+    </footer>
+
+    <!-- Includi il file dei dati -->
+    <script src="dati.js"></script>
+
+    <!-- Script per generare dinamicamente le griglie -->
+    <script>
+        function showPage(pageId, btnElement) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(pageId).classList.add('active');
+            btnElement.classList.add('active');
+        }
+
+        function caricaGriglia(arrayDati, gridId) {
+            const grid = document.getElementById(gridId);
+            if (grid) {
+                grid.innerHTML = '';
+                // Se vuoi l'ordine cronologico inverso (ultimi inseriti in alto), tieni .reverse()
+                // Altrimenti rimuovilo se preferisci l'ordine di scrittura.
+                arrayDati.forEach(item => {
+                    const htmlItem = `
+                        <div class="artwork">
+                            <a href="${item.file}" target="_blank">
+                                <img src="${item.file}" alt="${item.titolo}">
+                            </a>
+                            <div class="caption">
+                                <span class="title">${item.titolo}</span>
+                                <span class="details">${item.dettagli}</span>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += htmlItem;
+                });
+            }
+        }
+
+        // Popola le griglie all'avvio della pagina
+        caricaGriglia(opereArte, 'art-grid');
+        caricaGriglia(fotografie, 'photo-grid');
+    </script>
+    
+    <script>
+      document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+</html>
