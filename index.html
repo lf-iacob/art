@@ -160,13 +160,13 @@
             fetch('https://api.counterapi.dev/v1/portfolio-laura-iacob/visite/up')
                 .then(response => response.json())
                 .then(data => {
-                    // Controlla se la proprietà esiste, altrimenti prova alternative o mostra 1
-                    const conteggio = data.count !== undefined ? data.count : (data.value !== undefined ? data.value : '1');
+                    // Controlla se la proprietà esiste, altrimenti prova alternative o mostra 13
+                    const conteggio = data.count !== undefined ? data.count : (data.value !== undefined ? data.value : '13');
                     document.getElementById('contatore-visite').innerText = conteggio;
                 })
                 .catch(error => {
                     console.error('Errore nel caricamento del contatore:', error);
-                    document.getElementById('contatore-visite').innerText = '1';
+                    document.getElementById('contatore-visite').innerText = '13';
             });
         </script>
         
