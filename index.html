@@ -89,6 +89,9 @@
                 <p>
                   Contatti: iacob.laura.f@gmail.com
                 </p>
+                <p style="margin-top: 25px; font-size: 0.9rem; color: #888;">
+                  Visite: <span id="contatore-visite" style="color: #fff; font-weight: bold;">...</span>
+                </p>
             </div>
         </div>
     </section>
@@ -114,7 +117,7 @@
     <!-- Includi il file dei dati -->
     <script src="dati.js"></script>
 
-    <!-- Script per generare dinamicamente le griglie -->
+    <!-- Script per generare dinamicamente le griglie e il contatore -->
     <script>
         function showPage(pageId, btnElement) {
             const sections = document.querySelectorAll('.page-section');
@@ -131,8 +134,6 @@
             const grid = document.getElementById(gridId);
             if (grid) {
                 grid.innerHTML = '';
-                // Se vuoi l'ordine cronologico inverso (ultimi inseriti in alto), tieni .reverse()
-                // Altrimenti rimuovilo se preferisci l'ordine di scrittura.
                 arrayDati.forEach(item => {
                     const htmlItem = `
                         <div class="artwork">
@@ -153,6 +154,17 @@
         // Popola le griglie all'avvio della pagina
         caricaGriglia(opereArte, 'art-grid');
         caricaGriglia(fotografie, 'photo-grid');
+
+        // Caricamento contatore visite (sostituisci 'portfolio-laura-iacob' con un nome univoco se preferisci)
+        fetch('https://api.counterapi.dev/v1/portfolio-laura-iacob/visite/up')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('contatore-visite').innerText = data.count;
+            })
+            .catch(error => {
+                console.error('Errore nel caricamento del contatore:', error);
+                document.getElementById('contatore-visite').innerText = 'N/D';
+            });
     </script>
     
     <script>
