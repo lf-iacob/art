@@ -128,6 +128,11 @@ const opereArte = [
 
 const fotografie = [
     {
+        titolo: "Elena Neolaureata",
+        file: "foto/neolaureata.png",
+        dettagli: "Sony Alpha6000 (Settembre 2026)"
+    },
+    {
         titolo: "Tempio a Villa Borghese",
         file: "foto/villa_borghese.png",
         dettagli: "Sony Alpha6000 (2025)"
